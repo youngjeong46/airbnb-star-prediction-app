@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% block head %}
+    <title>{% block title %}{% endblock %} - Predict Airbnb Ratings</title>
+    <script src="https://code.jquery.com/jquery-latest.js"></script>
+    <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <script type="text/javascript" src="/static/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% endblock %}
+</head>
+
+<body>
+    <div class="card card-body">
+        <div class="jumbotron jumbotron-fluid text-center" style="margin-bottom:0">
+            {% block header %}
+            <h1>Predict Your New Airbnb Listing's Ratings!</h1>
+            <p>...Your first step to becoming a SuperHost</p>
+            {% endblock %}
+        </div>
+
+        <div class="container-fluid" style="margin-top:30px">
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="row">
+                        <div>
+                            <label for="flask">
+                                <h4><span class="label label-primary">Created With:</span></h4>
+                            </label>
+                        </div>
+                        <div>
+                            This app is created with Flask,
+                            with a bit of scikit-learn
+                            magic.
+                        </div>
+                    </div>
+                    <hr class="d-block">
+                    <div class="row">
+                        <div>
+                            <label for="youngjeong">
+                                <h4><span class="label label-primary">Created By:</span></h4>
+                            </label>
+                        </div>
+                        This app is created by Young Jeong. You can check his other work on&nbsp;
+                        <a href="https://github.com/youngjeong46">github</a> &nbsp;or connect with
+                        him on&nbsp;<a href="https://linkedin.com/in/youngsjeong">LinkedIn</a>.
+                    </div>
+                    <hr class="d-block">
+                    <div class="row" style="display: none" id='the_result_div'>
+                        <div>
+                            <label for="prediction">
+                                <h4><span class="label label-primary">Prediction:</span></h4>
+                            </label>
+                        </div>
+                        <br>
+                        <div>
+                            Your probability of getting a 5-star ratings is
+                            <b><span id="soft_predict"></span>%</b>.
+                        </div>
+                        <div>
+                            <label for="suggestions">
+                                <h4><span class="label label-primary">Recommendation:</span>
+                                </h4>
+                            </label>
+                        </div>
+                        <div>
+                            Add this amenity: <b><span id="add"></span></b>
+                            <br>This will boost your probability to: <b><span id="improvement"></span>%</b>
+                        </div>
+                    </div>
+                </div>
+                {% block content%}{% endblock %}
+            </div>
+        </div>
+
+        <div class="jumbotron jumbotron-fluid text-center" style="margin-bottom:0">
+            {% block footer %}
+            Like this? Check out <a href="http://datatostories.com">my blog</a>
+            {% endblock %}
+        </div>
+
+    </div>
+
+</body>
+{% block scripts %}{% endblock %}
+
+</html>
