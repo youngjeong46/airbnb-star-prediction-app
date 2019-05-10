@@ -36,4 +36,5 @@ def index():
     return render_template("index.html", amenities=amenity_list)
 
 
-app.run(debug=False)
+if __name__ == "main":
+    app.run(debug=False)
