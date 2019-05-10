@@ -1,5 +1,5 @@
 from flask import Flask, request, render_template, jsonify, request, abort
-from airbnb_review_api import predict_ratings
+from airbnb_ratings_api import predict_ratings
 
 app = Flask(__name__)
 amenities = ['24-hour check-in', 'Air conditioning', 'BBQ grill', 'Bed linens',
