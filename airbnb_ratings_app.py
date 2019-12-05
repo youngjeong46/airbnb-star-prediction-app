@@ -1,6 +1,5 @@
 from flask import Flask, request, render_template, jsonify, request, abort
 from airbnb_ratings_api import predict_ratings
-# app = Flask('AirbnbRatingsApp')
 app = Flask(__name__)
 amenities = ['24-hour check-in', 'Air conditioning', 'BBQ grill', 'Bed linens',
              'Cable TV', 'Coffee maker', 'Dishwasher', 'Elevator',
@@ -36,5 +35,5 @@ def index():
     return render_template("index.html", amenities=amenity_list)
 
 
-if __name__ == "main":
-    app.run(debug=False)
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=5000, debug=False)
